@@ -1,4 +1,5 @@
 const areaModel = require("../models/areaModel");
+const { check } = require("express-validator");
 
 module.exports = {
   createArea: async (req, res, next) => {
@@ -52,6 +53,56 @@ module.exports = {
       return res.status(200).json({ msg: "success" });
     } catch (error) {
       return res.status(400).json({ mesg: error.message });
+    }
+  },
+  validates: (method) => {
+    switch (method) {
+      case "createArea": {
+        return [
+          check("areaName")
+            .exists()
+            .notEmpty()
+            .trim()
+            .withMessage("areaName is required")
+            .custom((value, { req }) => {
+              return areaModel.find({ areaName: value }).then((area) => {
+                if (area) return Promise.reject("areaName is already in used");
+              });
+            }),
+          check("location").exists().withMessage("location is required"),
+          check("markColor")
+            .exists()
+            .withMessage("markColor is required")
+            .custom((value, { req }) => {
+              return area.find({ markColor: value }).then((area) => {
+                if (area) return Promise.reject("markColor is already in used");
+              });
+            }),
+        ];
+      }
+      case "updateArea": {
+        return [
+          check("areaName")
+            .exists()
+            .notEmpty()
+            .trim()
+            .withMessage("areaName is required")
+            .custom((value, { req }) => {
+              return areaModel.find({ areaName: value }).then((area) => {
+                if (area) return Promise.reject("areaName is already in used");
+              });
+            }),
+          check("location").exists().withMessage("location is required"),
+          check("markColor")
+            .exists()
+            .withMessage("markColor is required")
+            .custom((value, { req }) => {
+              return area.find({ markColor: value }).then((area) => {
+                if (area) return Promise.reject("markColor is already in used");
+              });
+            }),
+        ];
+      }
     }
   },
 };
