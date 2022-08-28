@@ -60,13 +60,15 @@ module.exports = {
   },
   createCoral: async (req, res, next) => {
     try {
-      const { species, percentage, latitude, longitude, areaId } = req.body;
+      const { species, percentage, latitude, longitude, areaId, imageUrl } =
+        req.body;
       await coralModel.create({
         species,
         percentage,
         latitude,
         longitude,
         areaId,
+        imageUrl,
       });
       return res.status(201).json({ msg: "success" });
     } catch (error) {
@@ -84,7 +86,10 @@ module.exports = {
   },
   getCorals: async (req, res, next) => {
     try {
-      const corals = await find({});
+      const { areaId } = req.query;
+      const corals = areaId
+        ? await coralModel.find({ areaId: areaId })
+        : await coralModel.find({});
       return res.status(200).json({ data: corals });
     } catch (error) {
       return res.status(400).json({ msg: error.message });

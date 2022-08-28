@@ -18,10 +18,18 @@ const coralSchema = new Schema({
     type: Number,
     require: true,
   },
+  imageUrl: {
+    type: String,
+    require: true,
+  },
   areaId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Areas",
     require: true,
+  },
+  createdAt: {
+    type: String,
+    default: Date.now(),
   },
 });
 

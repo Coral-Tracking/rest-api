@@ -6,6 +6,7 @@ var logger = require("morgan");
 require("dotenv").config();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const multer = require("multer");
 
 var indexRouter = require("./routes/index");
 const apiRouter = require("./routes/api");
@@ -16,14 +17,23 @@ mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    dbName: "coral-tracking",
   })
   .then(() => console.log("Database connected!"))
   .catch((err) => console.log(err));
+
+const multerMid = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: 5 * 1024 * 1024,
+  },
+});
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
+app.use(multerMid.single("file"));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

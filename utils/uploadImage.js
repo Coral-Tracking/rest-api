@@ -3,11 +3,11 @@ const gc = require("../configs/cloudStorage");
 const bucket = gc.bucket(process.env.BUCKET);
 const path = require("path");
 
-const uploadImage = (file, areaId = Math.random()) =>
+const uploadImage = (file) =>
   new Promise((resolve, reject) => {
     const { originalname, buffer } = file;
 
-    const uniqueName = areaId + "-" + Date.now() + path.extname(originalname);
+    const uniqueName = Date.now() + path.extname(originalname);
     const blob = bucket.file(uniqueName);
     const blobStream = blob.createWriteStream({
       resumable: false,

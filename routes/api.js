@@ -25,7 +25,7 @@ router.post(
 );
 router.delete("/coral/:coralId", mainController.removeCoral);
 
-router.post("/file/upload", mainController.uploadImage);
-router.delete("/file/upload", mainController.uploadImage);
+router.post("/file", mainController.uploadImage);
+router.delete("/file", mainController.removeImage);
 
 module.exports = router;
