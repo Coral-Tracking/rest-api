@@ -2,6 +2,7 @@ const areaModel = require("../models/areaModel");
 const coralModel = require("../models/coralModel");
 const { check } = require("express-validator");
 const { find } = require("../models/coralModel");
+const { uploadImage, removeImage } = require("../utils/uploadImage");
 
 module.exports = {
   createArea: async (req, res, next) => {
@@ -98,8 +99,35 @@ module.exports = {
       return res.status(400).json({ msg: error.message });
     }
   },
-  uploadImage: async (req, res, next) => {},
-  removeImage: async (req, res, next) => {},
+  uploadImage: async (req, res, next) => {
+    try {
+      const image = req.file;
+      const imageUrl = await uploadImage(image);
+
+      res.status(200).json({
+        msg: "success",
+        imageUrl,
+      });
+    } catch (error) {
+      return res.status(400).json({ msg: error.message });
+    }
+  },
+  removeImage: async (req, res, next) => {
+    try {
+      const { imageUrl } = req.body;
+
+      if (!imageUrl)
+        return res.status(422).send("Should have image url for delete image");
+
+      const image = await removeImage(imageUrl);
+
+      if (!image) return res.status(404).json({ message: "failed" });
+
+      return res.status(200).json({ message: "success" });
+    } catch (error) {
+      return res.status(400).json({ message: error.message });
+    }
+  },
   validates: (method) => {
     switch (method) {
       case "createArea": {
