@@ -16,4 +16,13 @@ router.put(
 );
 router.delete("/area/:areaId", mainController.removeArea);
 
+router.get("/coral/:coralId", mainController.getCoral);
+router.get("/corals", mainController.getCorals);
+router.post(
+  "/coral",
+  mainController.validates("createCoral"),
+  mainController.createCoral
+);
+router.delete("/coral/:coralId", mainController.removeCoral);
+
 module.exports = router;

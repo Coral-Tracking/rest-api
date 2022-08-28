@@ -1,5 +1,7 @@
 const areaModel = require("../models/areaModel");
+const coralModel = require("../models/coralModel");
 const { check } = require("express-validator");
+const { find } = require("../models/coralModel");
 
 module.exports = {
   createArea: async (req, res, next) => {
@@ -55,6 +57,49 @@ module.exports = {
       return res.status(400).json({ mesg: error.message });
     }
   },
+  createCoral: async (req, res, next) => {
+    try {
+      const { species, percentage, latitude, longitude, areaId } = req.body;
+      await coralModel.create({
+        species,
+        percentage,
+        latitude,
+        longitude,
+        areaId,
+      });
+      return res.status(201).json({ msg: "success" });
+    } catch (error) {
+      return res.status(400).json({ msg: error.message });
+    }
+  },
+  getCoral: async (req, res, next) => {
+    try {
+      const { coralId } = req.params;
+      const coral = await coralModel.findById(coralId);
+      return res.status(200).json({ data: coral });
+    } catch (error) {
+      return res.status(400).json({ msg: error.message });
+    }
+  },
+  getCorals: async (req, res, next) => {
+    try {
+      const corals = await find({});
+      return res.status(200).json({ data: corals });
+    } catch (error) {
+      return res.status(400).json({ msg: error.message });
+    }
+  },
+  removeCoral: async (req, res, next) => {
+    try {
+      const { coralId } = req.params;
+      await coralModel.findByIdAndRemove(coralId);
+      return res.status(200).json({ msg: "success" });
+    } catch (error) {
+      return res.status(400).json({ msg: error.message });
+    }
+  },
+  uploadImage: async (req, res, next) => {},
+  removeImage: async (req, res, next) => {},
   validates: (method) => {
     switch (method) {
       case "createArea": {
@@ -101,6 +146,35 @@ module.exports = {
                 if (area) return Promise.reject("markColor is already in used");
               });
             }),
+        ];
+      }
+      case "createCoral": {
+        return [
+          check("species")
+            .exists()
+            .notEmpty()
+            .trim()
+            .withMessage("species is required"),
+          check("percentage")
+            .exists()
+            .notEmpty()
+            .trim()
+            .withMessage("percentage is required"),
+          check("latitude")
+            .exists()
+            .notEmpty()
+            .trim()
+            .withMessage("latitude is required"),
+          check("longitude")
+            .exists()
+            .notEmpty()
+            .trim()
+            .withMessage("longitude is required"),
+          check("areaId")
+            .exists()
+            .notEmpty()
+            .trim()
+            .withMessage("areaId is required"),
         ];
       }
     }
