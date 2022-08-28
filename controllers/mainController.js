@@ -88,8 +88,12 @@ module.exports = {
     try {
       const { areaId } = req.query;
       const corals = areaId
-        ? await coralModel.find({ areaId: areaId })
-        : await coralModel.find({});
+        ? await coralModel
+            .find({ areaId: areaId })
+            .populate({ path: "areaId", select: { _id: 0 } })
+        : await coralModel
+            .find({})
+            .populate({ path: "areaId", select: { _id: 0 } });
       return res.status(200).json({ data: corals });
     } catch (error) {
       return res.status(400).json({ msg: error.message });
