@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "farmer-nusantara-develop",
+  "private_key_id": "3208805a9ee00c8eb5f25c59003cc6808ab587ad",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCUF5BDRrbAkb72\naAmc50PbPjvfaKLh8iCisuIiUjU0YB2mw6xHa1ZKbAjKPx0zTV1/29j5/OGavrcH\nLdUQLfaKw3KOR/oc83DBhxzxzlG/ocfsg0/ZTY9pCZPBOjDAk9WhfaEfJ+ELPzlp\nDOUCu+kYrrM4konA4uubhrshy2pdeL0trhCMkrQC/x5EMKAuGaY+AlToypaL/k+S\n4cnwH2wN1o3QTFXsTA427g2LcUtgxr01GO+qIkJ5Cp07mKOaaIhgs/v574ND7vgB\nAdrtPihlzwPTjzsKH+/GFpz8IdyenHoKJbLSRgahImiK2ZLF+dLR2etEaiAl3YbO\nKfY/iD9vAgMBAAECggEABK3EILatHeNLJK0mymBfOzxdHlZkFT5Hqli0QkrjuW9W\noHxKzh5ls6R0JqQV1Rc3bOfusHEEVXlfDIjnmyazRQZlxnmtPO550Z4fFIpzMS+G\nidBK6vpRj0Qa+Q/7QTiOCTQB5ptQDPpcRolFpTaULtdXCnDbODKIffmITK2XH7O5\nwSSaJLH6cmFEvMZOJcNt59NQsFNLzNmV6st01Xd2XxONmA+7TnsqxEIdCzmZK7rx\n8by6UYRB0OWYto/XxgbHn1RUUicgdmCvnZl9M7+Y4eANhIOPYMgcCkpn3eXO07nT\nMijWKXXDk7y9Y0kBMnfFYYXVsFvqnTEKDsMu7V3D6QKBgQDLlXCpBb1lWaZs8N+a\n8e1PZ8uKEeYEfbHtmKHfrB5n3K2aCANnIRuPe8a1BSw50/7AogFsqljd4G7WULZa\nc/jfjJQSKoHL9XQ1ppZW4J+7V8SEYuyVao6UgAR/Ay+TSsa5r98PH1hUnlHlhotN\nHdYDccuf4UkzX6i5hQ52zv4DqwKBgQC6OJGDAZ5W354fJvPZFnJ4JXrojpuGpjrJ\nQ8EpvinINz3HK0rrop5kgiTO5pLGPbUAE2LzoYRSCAY5DquYnFwj/IFiMCeQhJZY\nWJt/jiJaPqAJsZc+kBgMVEn7bRVBUjc6sBOwLV331Qd13eplJ1ORHxBpT6uG2v4t\nirrEwp5vTQKBgG8Og5nAxtPN9wrAz8ovpXxGq/MS1n6mrvRk6hEhTKjt6kn3ixus\nJOO96uT/AGQ/cF5XQh2sQ7Qt5WjGOOPZFe+lOXU7ePjxWkaWLLcR7DD/rPVnHZZY\nvZTmzQ0YiNB53zSWa0FNoRrwDs79+WnFF+VjI2iBNjRvP5SMsBpByrHnAoGAXU7W\n6nO3KQRnMGjOKmpq9PSiv0AlgbRtJEfE0+uq991mIRP6OFOFVgs38kvqI1bsCJuu\nKzE1If1PUOue45sFOCrfkZlbWbh1tNLBJ4rKf7l9ax4HEJwW0KazYz3nNpHBhrCP\nTOmOeg3N7StCtWidIMwV5w66fZnhXmRy7QAvbskCgYBbxDM7ZHPVMdOXmc6SbJHJ\neBzqQIbzHOLN94w1GqXnzT9NYP/HQFu8wuqAiVD+Vjzyy4Jk52pKVvwtkCZclVyr\nIHHdrtZBH5OZ1OuYOMzEZ/ggsgvJGubc9wsTqUnJGie4pKiydvtcK3RIXX83r8az\nxi7TxY9u+16XhyTw/Et5Pw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "farmer-nusantara-img-storage-2@farmer-nusantara-develop.iam.gserviceaccount.com",
+  "client_id": "116934034129763261516",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/farmer-nusantara-img-storage-2%40farmer-nusantara-develop.iam.gserviceaccount.com"
+}
